@@ -20,7 +20,7 @@ executable pager
   main-is:              Main.hs
   -- other-modules:
   -- other-extensions:
-  build-depends:        base >=4.6 && <4.7,
+  build-depends:        base >=4.3 && <4.8,
                         HPDF >=1.4 && <1.5
   hs-source-dirs:       src
   ghc-options:          -Wall -fno-warn-type-defaults
@@ -30,7 +30,7 @@ library
   exposed-modules:      Pager.PaperFormat
   -- other-modules:
   -- other-extensions:
-  build-depends:        base >=4.6 && <4.7,
+  build-depends:        base >=4.3 && <4.8,
                         HPDF >=1.4 && <1.5
   ghc-options:          -Wall -fno-warn-type-defaults
   hs-source-dirs:       src
@@ -41,7 +41,7 @@ executable test-pager
   ghc-options:          -Wall -fno-warn-type-defaults
   main-is:              Test.hs
   default-language:     Haskell2010
-  build-depends:        base ==4.6.*, Cabal >= 1.16.0
+  build-depends:        base >=4.3 && <4.8, Cabal >= 1.16.0
                         , HPDF >=1.4 && <1.5
                         , pager
                         , HUnit
@@ -57,7 +57,7 @@ test-suite Tests
   main-is:              Test.hs
   Type:                 exitcode-stdio-1.0
   default-language:     Haskell2010
-  build-depends:        base ==4.6.*, Cabal >= 1.16.0
+  build-depends:        base >=4.3 && <4.8, Cabal >= 1.16.0
                         , pager
                         , HUnit
                         , QuickCheck
