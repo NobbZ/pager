@@ -1,0 +1,10 @@
+language: haskell
+ghc:
+  - 7.8
+  - 7.6
+  - 7.4
+  - 7.0
+install:
+  - cabal sandbox init
+  - cabal install --dependencies-only --enable-tests
+script: cabal run test-pager
