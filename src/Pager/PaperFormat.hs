@@ -26,8 +26,6 @@ module Pager.PaperFormat ( Points     (Points)
                          , minch2mm
                          , toPDFRect) where
 
-import           Data.List
-import           Data.Maybe
 import           Data.Tuple
 import qualified Graphics.PDF as PDF
 
@@ -164,8 +162,13 @@ dimensionList = [ (A0, (2384, 3370))
                 , (B9, ( 125,  176))
                 , (B10,(  88,  125))
                 , (C2, (1837,  578))
-                , (C3, (0,0))
-                , (C4, (0,0))
-
+                , (C3, ( 578,  919))
+                , (C4, ( 919,  649))
+                , (C5, ( 649,  459))
+                , (C6, ( 459,  323))
+                , (D0, (3090, 2186))
+                , (SRA0, (3628, 2551))
+                , (SRA1, (2551, 1814))
+                , (SRA2, (1814, 1276))
                 ]
 

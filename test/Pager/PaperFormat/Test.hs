@@ -1,6 +1,8 @@
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 module Pager.PaperFormat.Test where
 
 import           Test.SmallCheck.Series
@@ -11,6 +13,7 @@ import           Graphics.PDF
 
 import           Pager.PaperFormat
 
+formats :: a -> [PaperFormat]
 formats _ = [ A0, A1, A2, A3, A4, A5, A6, A7, A8
             , B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10
             ,         C2, C3, C4, C5, C6
