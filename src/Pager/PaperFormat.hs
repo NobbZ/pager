@@ -12,8 +12,21 @@ Longer description follows later!
 
 {-# LANGUAGE MultiParamTypeClasses #-}
 
-module Pager.PaperFormat where
+module Pager.PaperFormat ( Points     (Points)
+                         , MilliMeters(MilliMeters)
+                         , MilliInches(MilliInches)
+                         , PaperSize  (..)
+                         , PaperFormat(..)
+                         , Orientation(..)
+                         , pt2mm
+                         , pt2minch
+                         , mm2pt
+                         , mm2minch
+                         , minch2pt
+                         , minch2mm
+                         , toPDFRect) where
 
+import           Data.Tuple
 import qualified Graphics.PDF as PDF
 
 class Unbox a b where
@@ -117,7 +130,21 @@ data Orientation = Landscape -- ^ the paper is oriented in a way that the width 
 
 -- | Returns a 'PDFRect' representing the corresponding 'PaperSize'
 toPDFRect :: PaperSize -> PDF.PDFRect
-toPDFRect (PaperSize   o pf) = undefined
+toPDFRect (PaperSize   o pf) = case o of
+  Landscape -> uncurry (PDF.PDFRect 0 0) (swap $ dimension)
+  Portrait  -> uncurry (PDF.PDFRect 0 0) (       dimension)
+  where
+    dimension = case pf of
+      A0 -> (2384, 3370)
+      A1 -> (1684, 2384)
+      A2 -> (1190, 1684)
+      A3 -> ( 842, 1190)
+      A4 -> ( 595,  842)
+      A5 -> ( 420,  595)
+      A6 -> ( 298,  420)
+      A7 -> ( 210,  298)
+      A8 -> ( 148,  210)
+      _  -> (   0,    0)
 toPDFRect (PaperRectPt w h ) = PDF.PDFRect 0 0 (ub              w) (ub              h)
 toPDFRect (PaperRectMM w h ) = PDF.PDFRect 0 0 (ub . mm2pt    $ w) (ub . mm2pt    $ h)
 toPDFRect (PaperRectMI w h ) = PDF.PDFRect 0 0 (ub . minch2pt $ w) (ub . minch2pt $ h)
