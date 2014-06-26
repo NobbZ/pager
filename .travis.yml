@@ -3,13 +3,11 @@ ghc:
   - 7.8
   - 7.6
   - 7.4
-  - 7.0
 matrix:
   allow_failures:
     ghc:
       - 7.8
       - 7.4
-      - 7.0
 install:
   - cabal sandbox init
   - cabal install --dependencies-only --enable-tests
