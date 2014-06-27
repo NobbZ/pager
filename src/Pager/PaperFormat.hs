@@ -7,7 +7,7 @@ Maintainer  : timmelzer@gmail.com
 Stability   : experimental
 Portability : portable
 
-Longer description follows later!
+TODO: Longer description follows later!
 -}
 
 {-# LANGUAGE MultiParamTypeClasses #-}
