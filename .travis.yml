@@ -11,4 +11,5 @@ matrix:
 install:
   - cabal sandbox init
   - cabal install -j2 --dependencies-only --enable-tests
+before_script: cabal configure -ftest
 script: cabal run test-pager
