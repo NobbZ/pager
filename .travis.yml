@@ -10,5 +10,5 @@ matrix:
       - 7.4
 install:
   - cabal sandbox init
-  - cabal install --dependencies-only --enable-tests
+  - cabal install -j2 --dependencies-only --enable-tests
 script: cabal run test-pager
